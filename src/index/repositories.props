@@ -34,7 +34,8 @@
     <Repository Include="msbuild">
       <Url>https://github.com/Microsoft/msbuild</Url>
       <Branch>master</Branch>
-      <OldCommit>91c86a746b312fce1aba31f8fb8540e949c11a01</OldCommit>
+      <!-- MSBuild relies on commit history for Nerdbank Git Versioning. -->
+      <DeepClone>true</DeepClone>
       <Projects>
         build/**/*.csproj;
         build/**/*.vbproj;
@@ -50,7 +51,7 @@
         src/XMakeTasks/XMakeTasksUnitTests/XMakeTasksUnitTests.csproj;
       </ExcludeProjects>
       <PrepareCommand>
-        "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" &amp; cibuild --target CoreCLR --build-only
+        "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" &amp; build -skiptests
       </PrepareCommand>
     </Repository>
     <Repository Include="wcf">
